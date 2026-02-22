@@ -310,7 +310,7 @@ if st.session_state.job_id and st.session_state.generating:
                 progress_ring(10, "QUEUED", f"Position {pos} in queue — waiting for GPU..."),
                 unsafe_allow_html=True,
             )
-            time.sleep(2)
+            time.sleep(30)
             st.rerun()
 
         elif s == "generating":
@@ -320,7 +320,7 @@ if st.session_state.job_id and st.session_state.generating:
                 progress_ring(pct, "GENERATING", f"Step {pct}% complete — GPU working..."),
                 unsafe_allow_html=True,
             )
-            time.sleep(1)
+            time.sleep(30)
             st.rerun()
 
         elif s == "done":
