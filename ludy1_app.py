@@ -18,7 +18,7 @@ from PIL import Image
 
 # ══════════════════════════════════════════════════════════════════
 #  ↓↓↓  ONLY LINE YOU EVER NEED TO CHANGE  ↓↓↓
-SERVER_URL = "https://ruthenious-unconsiderablely-aryanna.ngrok-free.dev"
+SERVER_URL = "https://YOUR-URL-HERE.ngrok-free.app"
 #  ↑↑↑  PASTE YOUR NGROK URL ABOVE  ↑↑↑
 # ══════════════════════════════════════════════════════════════════
 
@@ -314,11 +314,13 @@ if st.session_state.job_id and st.session_state.generating:
             st.rerun()
 
         elif s == "generating":
+            pct = status.get("progress", 0)
+            pct = max(5, pct)  # always show at least 5% so ring is visible
             output_slot.markdown(
-                progress_ring(60, "GENERATING", "GPU is working on your image..."),
+                progress_ring(pct, "GENERATING", f"Step {pct}% complete — GPU working..."),
                 unsafe_allow_html=True,
             )
-            time.sleep(2)
+            time.sleep(1)
             st.rerun()
 
         elif s == "done":
@@ -376,6 +378,6 @@ if len(st.session_state.history) > 1:
 # ── Footer ─────────────────────────────────────────────────────────
 st.markdown("---")
 st.markdown(
-    '<p style="text-align:center;color:#333;font-size:11px;letter-spacing:2px">LUDY 1 · BOTDEVELOPMENTAI · POWERED BY Ludy 1.0</p>',
+    '<p style="text-align:center;color:#333;font-size:11px;letter-spacing:2px">LUDY 1 · BOTDEVELOPMENTAI · POWERED BY LUDY 1.0</p>',
     unsafe_allow_html=True,
 )
