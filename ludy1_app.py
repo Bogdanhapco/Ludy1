@@ -234,7 +234,7 @@ neg_prompt = st.text_area(
 model = st.radio(
     "Model",
     options=["ludy12", "ludy10"],
-    format_func=lambda x: "⚡ Ludy 1.2 — Fast & Modern" if x == "ludy12" else "🎨 Ludy 1.0 — High Quality",
+    format_func=lambda x: "⚡ Ludy 1.2 — High Quality & Modern" if x == "ludy12" else "🎨 Ludy 1.0 — fast",
     horizontal=True,
     disabled=st.session_state.generating,
 )
@@ -388,6 +388,6 @@ if len(st.session_state.history) > 1:
 # ── Footer ─────────────────────────────────────────────────────────
 st.markdown("---")
 st.markdown(
-    '<p style="text-align:center;color:#333;font-size:11px;letter-spacing:2px">LUDY 1 · BOTDEVELOPMENTAI · POWERED BY SDXL</p>',
+    '<p style="text-align:center;color:#333;font-size:11px;letter-spacing:2px">LUDY 1 · BOTDEVELOPMENTAI · POWERED BY Ludy 1.0 & Ludy 1.2</p>',
     unsafe_allow_html=True,
 )
