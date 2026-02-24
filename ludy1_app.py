@@ -18,7 +18,7 @@ from PIL import Image
 
 # ══════════════════════════════════════════════════════════════════
 #  ↓↓↓  ONLY LINE YOU EVER NEED TO CHANGE  ↓↓↓
-SERVER_URL = "https://ruthenious-unconsiderablely-aryanna.ngrok-free.devp"
+SERVER_URL = "https://ruthenious-unconsiderablely-aryanna.ngrok-free.dev"
 #  ↑↑↑  PASTE YOUR NGROK URL ABOVE  ↑↑↑
 # ══════════════════════════════════════════════════════════════════
 
