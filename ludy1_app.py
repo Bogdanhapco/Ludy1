@@ -18,7 +18,7 @@ from PIL import Image
 
 # ══════════════════════════════════════════════════════════════════
 #  ↓↓↓  ONLY LINE YOU EVER NEED TO CHANGE  ↓↓↓
-SERVER_URL = "https://ruthenious-unconsiderablely-aryanna.ngrok-free.dev"
+SERVER_URL = "https://YOUR-URL-HERE.ngrok-free.app"
 #  ↑↑↑  PASTE YOUR NGROK URL ABOVE  ↑↑↑
 # ══════════════════════════════════════════════════════════════════
 
@@ -230,6 +230,15 @@ neg_prompt = st.text_area(
     disabled=st.session_state.generating,
 )
 
+# Model selector
+model = st.radio(
+    "Model",
+    options=["ludy12", "ludy10"],
+    format_func=lambda x: "⚡ Ludy 1.2 — Fast & Modern" if x == "ludy12" else "🎨 Ludy 1.0 — High Quality",
+    horizontal=True,
+    disabled=st.session_state.generating,
+)
+
 col1, col2 = st.columns(2)
 with col1:
     size = st.selectbox(
@@ -240,7 +249,7 @@ with col1:
     )
     w, h = [int(x) for x in size.split("×")]
 with col2:
-    steps    = st.slider("Steps",          10, 50,   10,  disabled=st.session_state.generating)
+    steps    = st.slider("Steps",          4, 50,   4 if model == "ludy12" else 30,  disabled=st.session_state.generating)
     guidance = st.slider("Guidance Scale",  1.0, 15.0, 7.5, 0.5, disabled=st.session_state.generating)
 
 # Generate OR Cancel button
@@ -269,6 +278,7 @@ if generate_clicked:
                     "width":           w,
                     "height":          h,
                     "guidance":        guidance,
+                    "model":           model,
                 },
                 timeout=10,
             )
@@ -378,6 +388,6 @@ if len(st.session_state.history) > 1:
 # ── Footer ─────────────────────────────────────────────────────────
 st.markdown("---")
 st.markdown(
-    '<p style="text-align:center;color:#333;font-size:11px;letter-spacing:2px">LUDY 1 · BOTDEVELOPMENTAI · POWERED BY LUDY 1.0</p>',
+    '<p style="text-align:center;color:#333;font-size:11px;letter-spacing:2px">LUDY 1 · BOTDEVELOPMENTAI · POWERED BY SDXL</p>',
     unsafe_allow_html=True,
 )
